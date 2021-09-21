@@ -133,8 +133,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapView {
                 .addAll(points)
         )
 
-        mMap.addMarker(MarkerOptions().position(points.first()))
-        mMap.addMarker(MarkerOptions().position(points.last()))
+        val distanceInKm=(path.distance/1000).toFloat()
+        mMap.addMarker(MarkerOptions().position(points.first()).title(getString(R.string.distance_km, distanceInKm)))
+        mMap.addMarker(MarkerOptions().position(points.last()).title(getString(R.string.distance_km, distanceInKm)))
 
         val bBox = path.BBox
         val topLeft = LatLng(bBox[0], bBox[1])
@@ -171,7 +172,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapView {
                 LatLng(bBox[3], bBox[0]),
                 LatLng(bBox[3], bBox[2]),
                 LatLng(bBox[1], bBox[2]),
-                LatLng(bBox[1], bBox[0]),
             ).strokeWidth(5f).strokeColor(Color.GRAY)
         )
         progressDialog.dismiss()
