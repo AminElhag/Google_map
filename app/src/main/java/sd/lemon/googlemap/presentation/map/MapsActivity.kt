@@ -172,7 +172,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapView {
                 LatLng(bBox[3], bBox[2]),
                 LatLng(bBox[1], bBox[2]),
                 LatLng(bBox[1], bBox[0]),
-            )
+            ).strokeWidth(5f).strokeColor(Color.GRAY)
         )
         progressDialog.dismiss()
     }

@@ -20,7 +20,7 @@ class MapPresenter(
     fun setPoint(latLng: LatLng) {
         if (firstPoint == null) {
             firstPoint = latLng
-//            view.clear()
+            view.clear()
 //            view.addMark(latLng)
             return
         }
